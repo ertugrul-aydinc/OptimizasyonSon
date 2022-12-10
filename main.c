@@ -40,8 +40,8 @@ base2:
 base3:
     printf("Kac adet kisit fonksiyonunuz olacak ?\n");
     scanf_s("%d", &kisitAdedi);
-    if (kisitAdedi < 1) {
-        printf("En az 1 kisit fonksiyonunuz olmalidir.\n");
+    if (kisitAdedi < 3) {
+        printf("Pozitif ksıtları dahil en az 3 kisit fonksiyonunuz olmalidir.\n");
         goto base3;
     }
 
