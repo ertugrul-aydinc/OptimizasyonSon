@@ -45,7 +45,7 @@ base3:
         goto base3;
     }
 
-    float kisitMatrix[6][2 + 1];
+    float kisitMatrix[kisitAdedi][degiskenSayisi + 1];
 
     for (int i = 0; i < kisitAdedi; i++) {
         for (int j = 0; j < degiskenSayisi + 1; j++) {
