@@ -115,7 +115,7 @@ base3:
 
     float possibleCevapMatrix[hesapAdedi][degiskenSayisi];
 
-    int mumkunMu = 0;
+    int mumkunDegil = 0;
 
     //Mümkün noktalar bulundu
     for (int i = 0; i < hesapAdedi; i++) {
@@ -124,21 +124,21 @@ base3:
             if (isaretler[k]) {
                 if (!((cozumMatrix[i][0] * kisitMatrix[k][0] + cozumMatrix[i][1] * kisitMatrix[k][1]) <= kisitMatrix[k][degiskenSayisi])) {
                     flag = 0;
-                    mumkunMu++;
+                    mumkunDegil++;
                     break;
                 }
             }
             else {
                 if (!((cozumMatrix[i][0] * kisitMatrix[k][0] + cozumMatrix[i][1] * kisitMatrix[k][1]) >= kisitMatrix[k][degiskenSayisi])) {
                     flag = 0;
-                    mumkunMu++;
+                    mumkunDegil++;
                     break;
                 }
             }
         }
         if (flag) {
-            possibleCevapMatrix[i-mumkunMu][0] = cozumMatrix[i][0];
-            possibleCevapMatrix[i-mumkunMu][1] = cozumMatrix[i][1];
+            possibleCevapMatrix[i-mumkunDegil][0] = cozumMatrix[i][0];
+            possibleCevapMatrix[i-mumkunDegil][1] = cozumMatrix[i][1];
         }
 
     }
@@ -146,7 +146,7 @@ base3:
     float zDegerleri[hesapAdedi];
 
 
-    for (int i = 0; i < hesapAdedi - mumkunMu; i++) {
+    for (int i = 0; i < hesapAdedi - mumkunDegil; i++) {
         for (int j = 0; j < degiskenSayisi; j++) {
             zDegerleri[i] += possibleCevapMatrix[i][j] * amacMatrix[j];
         }
@@ -155,12 +155,12 @@ base3:
     int nokta = 0;
     float sonuc = zDegerleri[0];
 
-    if (mumkunMu == hesapAdedi) {
+    if (mumkunDegil == hesapAdedi) {
         printf("Cozumsuz problem");
     }
     else {
         if (choice) {
-            for (int i = 1; i < hesapAdedi - mumkunMu; i++) {
+            for (int i = 1; i < hesapAdedi - mumkunDegil; i++) {
                 if (zDegerleri[i] > sonuc) {
                     sonuc = zDegerleri[i];
                     nokta = i;
@@ -170,7 +170,7 @@ base3:
             printf("Degerler:\n X1 : %f , X2 : %f\n", possibleCevapMatrix[nokta][0], possibleCevapMatrix[nokta][1]);
         }
         else {
-            for (int i = 1; i < hesapAdedi - mumkunMu; i++) {
+            for (int i = 1; i < hesapAdedi - mumkunDegil; i++) {
                 if (zDegerleri[i] < sonuc) {
                     sonuc = zDegerleri[i];
                     nokta = i;
