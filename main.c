@@ -95,21 +95,18 @@ base3:
             if (kisitMatrix[i][0] != 0) {
                 cozumMatrix[x][1] = (tmpKisitMatrix[degiskenSayisi] + kisitMatrix[j][degiskenSayisi]) / (tmpKisitMatrix[1] + kisitMatrix[j][1]);
                 cozumMatrix[x][0] = (kisitMatrix[i][degiskenSayisi] - (cozumMatrix[x][1] * kisitMatrix[i][1])) / kisitMatrix[i][0];
-                x++;
             }
             else {
                 if (!(kisitMatrix[i][0] == 0 && kisitMatrix[j][1] == 0)) {
                     cozumMatrix[x][0] = (tmpKisitMatrix[degiskenSayisi] + kisitMatrix[j][degiskenSayisi]) / kisitMatrix[j][0];
                     cozumMatrix[x][1] = (kisitMatrix[j][degiskenSayisi] - (cozumMatrix[x][0] * kisitMatrix[j][0])) / kisitMatrix[j][1];
-                    x++;
                 }
                 else{
                     cozumMatrix[x][1] = kisitMatrix[i][degiskenSayisi] / kisitMatrix[i][1];
                     cozumMatrix[x][0] = kisitMatrix[j][degiskenSayisi] / kisitMatrix[j][0];
-                    x++;
                 }
             }
-
+            x++;
         }
     }
 
